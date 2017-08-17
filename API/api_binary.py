@@ -833,7 +833,7 @@ for idx, name in enumerate(sys.argv):
                 table[hex(imp.address)] = imp.name
 
         freq = {}
-        disas = subprocess.check_output(["objdump", "-d", "-M", "intel", name])
+        disas = subprocess.check_output(["objdump", "-d", "-m", "intel", name])
         for line in disas.split('\n'):
             if "call" in line and "ds:" in line:
                 addr = line.split("ds:")[1]
